@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">FeedReader</string>
+    <string name="ver_mais">Ver mais</string>
+    <string name="autor">Autor</string>
+    <string name="t_tulo">Título</string>
+</resources>
