@@ -3,36 +3,52 @@ package com.androidclass.feedreader
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.pkmmte.pkrss.Article
 import com.pkmmte.pkrss.Callback
 import com.pkmmte.pkrss.PkRSS
 
 class MainActivity : AppCompatActivity(), Callback {
 
-   val listItens = arrayListOf<Item>()
+    lateinit var listview: RecyclerView
+    var  adapter: RecyclerView.Adapter<ItemAdapter.ItemViewHolder>? = null
+    var listItens = arrayListOf<Item>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        PkRSS.with(this).load("https://rss.tecmundo.br/feed").callback(this).async()
+        val layout = LinearLayoutManager(this)
+        listview = findViewById(R.id.recycleView) as RecyclerView
+        listview.layoutManager = layout
 
-    }
+        adapter = ItemAdapter(listItens, this)
+        listview.adapter = adapter
 
-    override fun onLoadFailed() {
-        TODO("Not yet implemented")
-    }
+        PkRSS.with(this).load("http://g1.globo.com/dynamo/tecnologia/rss2.xml").callback(this).async()
 
-    override fun onPreload() {
-        TODO("Not yet implemented")
     }
 
     override fun onLoaded(newArticles: MutableList<Article>?) {
+        listItens.clear()
         newArticles?.mapTo(listItens){
-            Item(it.title, it.author, it.date, it.source, it.enclosure.url)
+            Item(it.title, it.date, it.source, it.image.toString())
         }
+
+
+        (adapter as ItemAdapter).notifyDataSetChanged()
+    }
+
+    override fun onLoadFailed() {
 
     }
 
-    data class Item(val title: String, val autor: String, val data: Long, val link: Uri, val image: String)
+    override fun onPreload() {
+
+    }
+
+
+
+    data class Item(val title: String, val data: Long, val link: Uri, val image: String)
 }

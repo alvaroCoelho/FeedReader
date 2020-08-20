@@ -31,11 +31,10 @@ class ItemAdapter(val list: ArrayList<MainActivity.Item>, val context: Context):
     }
 
     override fun getItemCount(): Int = list.size
-    
+
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder?.title?.text = list[position].title
-        holder?.autor?.text = list[position].autor
         holder?.date?.text = SimpleDateFormat("dd/MM/yyyy", Locale("pt","BR")).format(Date(list[position].data))
         holder?.btnSeeMore?.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, list[position].link)

@@ -36,7 +36,7 @@ dependencies {
     implementation "androidx.cardview:cardview:1.0.0"
     implementation "androidx.recyclerview:recyclerview-selection:1.1.0-rc01"
     implementation "com.pkmmte.pkrss:pkrss:1.2"
-    implementation("com.squareup.okhttp3:okhttp:4.8.1")
-
+    implementation "com.squareup.okhttp:okhttp:1.6.0"
+    implementation "com.squareup.okhttp:okhttp-urlconnection:1.6.0"
 
 }
