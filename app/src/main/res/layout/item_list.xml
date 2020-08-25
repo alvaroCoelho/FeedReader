@@ -3,22 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="8dp"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/image"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="200dp"
             android:adjustViewBounds="false"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/title"
@@ -27,51 +26,41 @@
             android:text="@string/t_tulo"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="16dp"
-            android:stretchColumns="0,2"
-            >
+            android:orientation="horizontal"
+            android:stretchColumns="0,2">
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center">
 
-                <TextView
-                    android:id="@+id/autor"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/autor"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"/>
 
                 <TextView
                     android:id="@+id/date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Data da publicação"
                     android:gravity="center"
+                    android:text="Data da publicação"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
             </TableRow>
 
         </TableLayout>
 
-      <Button
-          android:id="@+id/btnSeeMore"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="16dp"
-          android:text="@string/ver_mais"/>
+        <Button
+            android:id="@+id/btnSeeMore"
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/ver_mais"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 

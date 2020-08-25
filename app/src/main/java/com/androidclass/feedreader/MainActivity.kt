@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), Callback {
         adapter = ItemAdapter(listItens, this)
         listview.adapter = adapter
 
-        PkRSS.with(this).load("http://g1.globo.com/dynamo/tecnologia/rss2.xml").callback(this).async()
+        PkRSS.with(this).load("http://g1.globo.com/dynamo/rss2.xml").callback(this).async()
 
     }
 
